@@ -2,7 +2,7 @@
 
 Compile to sass :
 ```bash
-sass --watch sass/style.scss style.css
+sass --watch sass/style.scss css/style.css
 ```
 
 example of `app.js` file :
