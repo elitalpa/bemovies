@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+// a {
+//   text-decoration: none;
+// }
+
+// img {
+//   width: 100%;
+//   display: block;
+// }
+
+// ul {
+//   list-style: none;
+// }
+
+
+
+body {
+  background: #191B20;
+  color: #FFFFFF;
+}
+
+.container {
+  max-width: 1100px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+h2 {
+  @include font-inter-400;
+  font-size: 16px;
+}

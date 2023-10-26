@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;700&display=swap");
+// font-family: 'Inria Sans', sans-serif;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+// font-family: 'Inter', sans-serif;
+
+$inria-sans: "Inria Sans", sans-serif;
+$inter: "Inter", sans-serif;
+
+// responsive
+$ipad: 768px;
+$ipadPro: 1024px;
+$laptop13: 1280px;
+$laptop: 1440px;
+$pc: 1920px;
+$bigPc: 2560px;
+$fourK: 3440px;
+
+// colors
+$black: #141517;
+$light-black: #191b20;
+$white: #FFFFFF;
+$red: #CC0000;
+$light-gray: #B0B0B0;
+$dark-gray: #B8B8B8;

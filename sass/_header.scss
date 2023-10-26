@@ -1,0 +1,51 @@
+header {
+  height: 100px;
+
+  background: $black;
+  text-transform: uppercase;
+
+}
+
+.container.menu {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    
+    a {
+      @include font-inria-sans-700;
+      font-size: 36px;
+      @include reset-a;
+
+      span {
+        color: $red;
+      }
+    }
+  }
+
+  nav {
+    ul {
+      @include reset-list;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 29px;
+      li {
+        a {
+          @include reset-a;
+          @include font-inria-sans-700;
+          font-size: 14px;
+        }
+
+        a:hover {
+          color: $red;
+        }
+      }
+    }
+  }
+}

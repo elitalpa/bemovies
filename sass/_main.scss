@@ -1,0 +1,109 @@
+#search {
+  margin-top: 73px;
+  margin-bottom: 95px;
+
+  form {
+    margin-bottom: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    input {
+      @include reset-input;
+      height: 44px;
+      width: 228px;
+      background-color: $white;
+      color: $black;
+      border-radius: 8px 0px 0px 8px;
+
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    button {
+      @include reset-button;
+      width: 44px;
+      height: 44px;
+      background: $red;
+      stroke: $white;
+      border-radius: 0px 8px 8px 0px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button:hover {
+      cursor: pointer;
+      background: $light-gray;
+      stroke: $white;
+    }
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+}
+
+#search-results,
+#latest-releases,
+#movies-genres {
+  // height: 351px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+#latest {
+  margin-top: 73px;
+  margin-bottom: 95px;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  #latest-releases {
+    height: 351px;
+  }
+}
+
+#genres {
+  margin-top: 73px;
+  margin-bottom: 95px;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  #movies-genres {
+    height: 351px;
+  }
+}
+
+.swiper-button-disabled {
+  svg {
+    stroke: $light-gray !important;
+  }
+}
+
+.swiper-btn-prev,
+.swiper-btn-next {
+  display: none;
+
+  @include ipad {
+    display: block;
+
+    svg {
+      stroke: $white;
+    }
+  }
+}
+
+.swiper-slide img {
+  object-fit: cover;
+  display: block;
+  width: 100%;
+}

@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BeMovies</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="container menu">
+        <div class="logo">
+          <a href="#"><span>Be</span>Movies</a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#search">search</a></li>
+            <li><a href="#latest">latest</a></li>
+            <li><a href="#genres">genres</a></li>
+            <li><a href="#">register</a></li>
+            <li><a href="#">signin</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- MAIN -->
+    <main>
+      <section id="search" class="container">
+        <form action="" method="get">
+          <input type="text" name="search-input" id="search-input" />
+          <!-- <label for="search-input"></label> -->
+          <button type="submit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="16"
+              viewBox="0 0 20 16"
+              fill="none"
+            >
+              <path
+                d="M12 1L19 8M19 8L12 15M19 8H1"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </form>
+        <div id="search-results">
+          <div class="swiper-btn-prev">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                id="Vector"
+                d="M9 13L6 10M6 10L9 7M6 10H14M1 10C1 8.8181 1.23279 7.64778 1.68508 6.55585C2.13738 5.46392 2.80031 4.47177 3.63604 3.63604C4.47177 2.80031 5.46392 2.13738 6.55585 1.68508C7.64778 1.23279 8.8181 1 10 1C11.1819 1 12.3522 1.23279 13.4442 1.68508C14.5361 2.13738 15.5282 2.80031 16.364 3.63604C17.1997 4.47177 17.8626 5.46392 18.3149 6.55585C18.7672 7.64778 19 8.8181 19 10C19 12.3869 18.0518 14.6761 16.364 16.364C14.6761 18.0518 12.3869 19 10 19C7.61305 19 5.32387 18.0518 3.63604 16.364C1.94821 14.6761 1 12.3869 1 10Z"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="swiper">
+            <h2>Results for ""</h2>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+            </div>
+            <!-- If we need pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+
+            <!-- If we need navigation buttons -->
+            <!-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+          <!-- If we need navigation buttons -->
+          <div class="swiper-btn-next">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 7L14 10M14 10L11 13M14 10H6M19 10C19 11.1819 18.7672 12.3522 18.3149 13.4442C17.8626 14.5361 17.1997 15.5282 16.364 16.364C15.5282 17.1997 14.5361 17.8626 13.4442 18.3149C12.3522 18.7672 11.1819 19 10 19C8.8181 19 7.64778 18.7672 6.55585 18.3149C5.46392 17.8626 4.47177 17.1997 3.63604 16.364C2.80031 15.5282 2.13738 14.5361 1.68508 13.4442C1.23279 12.3522 1 11.1819 1 10C1 7.61305 1.94821 5.32387 3.63604 3.63604C5.32387 1.94821 7.61305 1 10 1C12.3869 1 14.6761 1.94821 16.364 3.63604C18.0518 5.32387 19 7.61305 19 10Z"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section id="latest" class="container">
+        <div id="latest-releases">
+          <div class="swiper-btn-prev">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                id="Vector"
+                d="M9 13L6 10M6 10L9 7M6 10H14M1 10C1 8.8181 1.23279 7.64778 1.68508 6.55585C2.13738 5.46392 2.80031 4.47177 3.63604 3.63604C4.47177 2.80031 5.46392 2.13738 6.55585 1.68508C7.64778 1.23279 8.8181 1 10 1C11.1819 1 12.3522 1.23279 13.4442 1.68508C14.5361 2.13738 15.5282 2.80031 16.364 3.63604C17.1997 4.47177 17.8626 5.46392 18.3149 6.55585C18.7672 7.64778 19 8.8181 19 10C19 12.3869 18.0518 14.6761 16.364 16.364C14.6761 18.0518 12.3869 19 10 19C7.61305 19 5.32387 18.0518 3.63604 16.364C1.94821 14.6761 1 12.3869 1 10Z"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="swiper">
+            <h2>Latest releases</h2>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+            </div>
+            <!-- If we need pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+
+            <!-- If we need navigation buttons -->
+            <!-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+          <!-- If we need navigation buttons -->
+          <div class="swiper-btn-next">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 7L14 10M14 10L11 13M14 10H6M19 10C19 11.1819 18.7672 12.3522 18.3149 13.4442C17.8626 14.5361 17.1997 15.5282 16.364 16.364C15.5282 17.1997 14.5361 17.8626 13.4442 18.3149C12.3522 18.7672 11.1819 19 10 19C8.8181 19 7.64778 18.7672 6.55585 18.3149C5.46392 17.8626 4.47177 17.1997 3.63604 16.364C2.80031 15.5282 2.13738 14.5361 1.68508 13.4442C1.23279 12.3522 1 11.1819 1 10C1 7.61305 1.94821 5.32387 3.63604 3.63604C5.32387 1.94821 7.61305 1 10 1C12.3869 1 14.6761 1.94821 16.364 3.63604C18.0518 5.32387 19 7.61305 19 10Z"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section id="genres" class="container">
+        <div id="movies-genres">
+          <div class="swiper-btn-prev">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                id="Vector"
+                d="M9 13L6 10M6 10L9 7M6 10H14M1 10C1 8.8181 1.23279 7.64778 1.68508 6.55585C2.13738 5.46392 2.80031 4.47177 3.63604 3.63604C4.47177 2.80031 5.46392 2.13738 6.55585 1.68508C7.64778 1.23279 8.8181 1 10 1C11.1819 1 12.3522 1.23279 13.4442 1.68508C14.5361 2.13738 15.5282 2.80031 16.364 3.63604C17.1997 4.47177 17.8626 5.46392 18.3149 6.55585C18.7672 7.64778 19 8.8181 19 10C19 12.3869 18.0518 14.6761 16.364 16.364C14.6761 18.0518 12.3869 19 10 19C7.61305 19 5.32387 18.0518 3.63604 16.364C1.94821 14.6761 1 12.3869 1 10Z"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="swiper">
+            <h2>Movies by genre</h2>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./assets/illu.png" alt="illu image" />
+              </div>
+            </div>
+            <!-- If we need pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+
+            <!-- If we need navigation buttons -->
+            <!-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+          <!-- If we need navigation buttons -->
+          <div class="swiper-btn-next">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 7L14 10M14 10L11 13M14 10H6M19 10C19 11.1819 18.7672 12.3522 18.3149 13.4442C17.8626 14.5361 17.1997 15.5282 16.364 16.364C15.5282 17.1997 14.5361 17.8626 13.4442 18.3149C12.3522 18.7672 11.1819 19 10 19C8.8181 19 7.64778 18.7672 6.55585 18.3149C5.46392 17.8626 4.47177 17.1997 3.63604 16.364C2.80031 15.5282 2.13738 14.5361 1.68508 13.4442C1.23279 12.3522 1 11.1819 1 10C1 7.61305 1.94821 5.32387 3.63604 3.63604C5.32387 1.94821 7.61305 1 10 1C12.3869 1 14.6761 1.94821 16.364 3.63604C18.0518 5.32387 19 7.61305 19 10Z"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer>
+      <div class="container menu">
+        <div class="logo">
+          <a href="#"><span>Be</span>Movies</a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#search">search</a></li>
+            <li><a href="#latest">latest</a></li>
+            <li><a href="#genres">genres</a></li>
+            <li><a href="#">register</a></li>
+            <li><a href="#">signin</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

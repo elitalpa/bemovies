@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  background: #191B20;
+  color: #FFFFFF;
+}
+
+.container {
+  max-width: 1100px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+
+header {
+  height: 100px;
+  background: #141517;
+  text-transform: uppercase;
+}
+
+.container.menu {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container.menu .logo a {
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  color: white;
+  font-weight: normal;
+  text-decoration: none;
+  display: inline-block;
+}
+.container.menu .logo a span {
+  color: #CC0000;
+}
+.container.menu nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 29px;
+}
+.container.menu nav ul li a {
+  color: white;
+  font-weight: normal;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
+}
+.container.menu nav ul li a:hover {
+  color: #CC0000;
+}
+
+#search {
+  margin-top: 73px;
+  margin-bottom: 95px;
+}
+#search form {
+  margin-bottom: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+#search form input {
+  all: unset;
+  height: 44px;
+  width: 228px;
+  background-color: #FFFFFF;
+  color: #141517;
+  border-radius: 8px 0px 0px 8px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+#search form button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+  width: 44px;
+  height: 44px;
+  background: #CC0000;
+  stroke: #FFFFFF;
+  border-radius: 0px 8px 8px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#search form button:hover {
+  cursor: pointer;
+  background: #B0B0B0;
+  stroke: #FFFFFF;
+}
+#search h2 {
+  margin-bottom: 10px;
+}
+
+#search-results,
+#latest-releases,
+#movies-genres {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+#latest {
+  margin-top: 73px;
+  margin-bottom: 95px;
+}
+#latest h2 {
+  margin-bottom: 10px;
+}
+#latest #latest-releases {
+  height: 351px;
+}
+
+#genres {
+  margin-top: 73px;
+  margin-bottom: 95px;
+}
+#genres h2 {
+  margin-bottom: 10px;
+}
+#genres #movies-genres {
+  height: 351px;
+}
+
+.swiper-button-disabled svg {
+  stroke: #B0B0B0 !important;
+}
+
+.swiper-btn-prev,
+.swiper-btn-next {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .swiper-btn-prev,
+  .swiper-btn-next {
+    display: block;
+  }
+  .swiper-btn-prev svg,
+  .swiper-btn-next svg {
+    stroke: #FFFFFF;
+  }
+}
+
+.swiper-slide img {
+  object-fit: cover;
+  display: block;
+  width: 100%;
+}
+
+footer {
+  height: 186px;
+  background: #141517;
+  text-transform: uppercase;
+}
+
+/*# sourceMappingURL=style.css.map */
