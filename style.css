@@ -180,6 +180,25 @@ header {
   width: 100%;
 }
 
+#genres-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#genres-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 45px;
+}
+#genres-list ul li a {
+  color: white;
+  font-weight: normal;
+  text-decoration: none;
+  display: inline-block;
+}
+
 footer {
   height: 186px;
   background: #141517;
