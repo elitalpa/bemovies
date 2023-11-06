@@ -102,27 +102,27 @@ const createCard = (imgUrl, movieTitle, date, genre, rating, summary) => {
     let newCardHover = document.createElement('div');
 
     let newCardHoverTitle = document.createElement('h4')
-    newCardHoverTitle.innerHTML = movieTitle
+    newCardHoverTitle.innerText = movieTitle
     newCardHoverTitle.classList.add("movie-card-title")
     newCardHover.appendChild(newCardHoverTitle)
 
     let newCardHoverDate = document.createElement('h3')
-    newCardHoverDate.innerHTML = date;
+    newCardHoverDate.innerText = date;
     newCardHoverDate.classList.add("movie-card-date")
     newCardHover.appendChild(newCardHoverDate)
 
     let newCardHoverGenre = document.createElement('span')
-    newCardHoverGenre.innerHTML = genre;
+    newCardHoverGenre.innerText = genre;
     newCardHoverGenre.classList.add("movie-card-genre")
     newCardHover.appendChild(newCardHoverGenre)
 
-    let newCardHoverStar = document.createElement('span')
-    newCardHoverStar.innerHTML = "a star"
+    let newCardHoverStar = document.createElement('div')
+    newCardHoverStar.innerText = ""
     newCardHoverStar.classList.add("movie-card-star")
     newCardHover.appendChild(newCardHoverStar)
 
     let newCardHoverRating = document.createElement('span')
-    newCardHoverRating.innerHTML = rating
+    newCardHoverRating.innerText = rating
     newCardHoverRating.classList.add("movie-card-rating")
     newCardHover.appendChild(newCardHoverRating)
 
@@ -209,30 +209,6 @@ document.querySelector("#search form button").addEventListener("click", async (e
 
 /* -------------- POPULAR RELEASES FUNCTION --------------  */
 
-/* document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const response = await fetch(newReleasesUrl, options)
-    if (response.ok) {
-      console.log("latest fetched successfully")
-      latestSwiperWrapper.innerHTML = ""
-      const data = await response.json();
-      const sortedResults = sortByPopularity(data);
-      for (let element of sortedResults) {
-        await updateMovieInfo(element);
-        console.log(moviePoster)
-        console.log(movieTitle)
-        // CREATE AND SHOW CARD BELOW
-        addCard(moviePoster, latestSwiperWrapper, movieTitle)
-      }
-    }
-    else (
-      console.log("error")
-    )
-  }
-  catch (error) {
-    console.log(error, "error retrieveing new releases")
-  }
-}) */
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await fetch(newReleasesUrl, options)
