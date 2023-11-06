@@ -133,6 +133,7 @@ const createCard = (imgUrl, movieTitle, date, genre, rating, summary) => {
 
     newCardHover.setAttribute('data-summary', summary);
     newCardHover.setAttribute('data-img', imgUrl);
+    newCardHover.classList.add("card-hover")
     newCardPicture.src = imgUrl;
     newCard.appendChild(newCardHover);
     newCard.appendChild(newCardPicture);
@@ -326,7 +327,8 @@ document.querySelector("#genres-list ul").addEventListener("click", async (e) =>
 
 document.querySelectorAll(".swiper-wrapper").forEach((e) => {
   e.addEventListener("click", (event) => {
-    let clickedCard = event.target
+    let clickedCard = event.target.closest(".card-hover")
+    console.log(clickedCard)
     if (clickedCard) {
       const cardTitle = clickedCard.querySelector('.movie-card-title').textContent;
       const cardDate = clickedCard.querySelector('.movie-card-date').textContent;
