@@ -332,6 +332,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 23px;
+  padding: 20px;
 }
 .swiper-slide:hover > div .movie-card-title {
   font-family: "Inter", sans-serif;
