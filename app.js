@@ -85,7 +85,7 @@ const genres = [{ "id": 28, "name": "Action" }, { "id": 12, "name": "Adventure" 
 // ROUND THE REVIEWS
 
 function round(value, decimals) {
-  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+  return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
 }
 
 // SORT RESULTS FUNCTION :
@@ -286,6 +286,11 @@ document.querySelector("#genres-list ul").addEventListener("click", async (e) =>
     else {
       console.log("oopsie")
     }
+    // ON VEUT AUSSI AJOUTER UNE CLASSE ACTIVE A L'ELEMENT CLIQUE.
+    const allGenreItems = document.querySelectorAll("#genres-list ul a");
+    allGenreItems.forEach(item => item.classList.remove("active"));
+    e.target.classList.add("active");
+
   }
 
   catch (error) {
