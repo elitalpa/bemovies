@@ -102,27 +102,27 @@ const createCard = (imgUrl, movieTitle, date, genre, rating, summary) => {
     let newCardHover = document.createElement('div');
 
     let newCardHoverTitle = document.createElement('h4')
-    newCardHoverTitle.innerHTML = movieTitle
+    newCardHoverTitle.innerText = movieTitle
     newCardHoverTitle.classList.add("movie-card-title")
     newCardHover.appendChild(newCardHoverTitle)
 
     let newCardHoverDate = document.createElement('h3')
-    newCardHoverDate.innerHTML = date;
+    newCardHoverDate.innerText = date;
     newCardHoverDate.classList.add("movie-card-date")
     newCardHover.appendChild(newCardHoverDate)
 
     let newCardHoverGenre = document.createElement('span')
-    newCardHoverGenre.innerHTML = genre;
+    newCardHoverGenre.innerText = genre;
     newCardHoverGenre.classList.add("movie-card-genre")
     newCardHover.appendChild(newCardHoverGenre)
 
-    let newCardHoverStar = document.createElement('span')
-    newCardHoverStar.innerHTML = "a star"
+    let newCardHoverStar = document.createElement('div')
+    newCardHoverStar.innerText = ""
     newCardHoverStar.classList.add("movie-card-star")
     newCardHover.appendChild(newCardHoverStar)
 
     let newCardHoverRating = document.createElement('span')
-    newCardHoverRating.innerHTML = rating
+    newCardHoverRating.innerText = rating
     newCardHoverRating.classList.add("movie-card-rating")
     newCardHover.appendChild(newCardHoverRating)
 
@@ -213,26 +213,37 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await fetch(newReleasesUrl, options)
     if (response.ok) {
-      console.log("latest fetched successfully")
+      cardArray = []
       latestSwiperWrapper.innerHTML = ""
       const data = await response.json();
-      const sortedResults = sortByPopularity(data);
+      const sortedResults = sortByPopularity(data)
       for (let element of sortedResults) {
-        await updateMovieInfo(element);
-        console.log(moviePoster)
-        console.log(movieTitle)
-        // CREATE AND SHOW CARD BELOW
-        addCard(moviePoster, latestSwiperWrapper, movieTitle)
+        moviePoster = `https://image.tmdb.org/t/p/original${element.poster_path}`;
+        movieTitle = element.original_title;
+        movieGenres = findMovieGenres(element);
+        movieReleaseDate = element.release_date;
+        movieReviewAverage = element.vote_average;
+        movieSummary = element.overview;
+        // FIRST WE CREATE THE CARDS
+        let newCard = createCard(moviePoster, movieTitle, movieReleaseDate, movieGenres.toString(), movieReviewAverage, movieSummary)
+        // WE PUSH THE CARD TO AN ARRAY
+        cardArray.push(newCard)
       }
+      // WE DISPLAY THE ARRAY
+      cardArray.forEach(e => {
+        latestSwiperWrapper.appendChild(e)
+      })
+
     }
-    else (
-      console.log("error")
-    )
+    else {
+      console.log("oopsie")
+    }
   }
+
   catch (error) {
-    console.log(error, "error retrieveing new releases")
+    console.log(error, "error retrieving search results")
   }
-})
+});
 
 /* -------------- MOVIE BY GENRE FUNCTION --------------  */
 
@@ -318,7 +329,7 @@ document.querySelectorAll(".swiper-wrapper").forEach((e) => {
       // TOGGLE LE MODAL
 
       document.querySelector(".modal").classList.toggle("inactive")
-      
+
     }
   });
 })
@@ -332,7 +343,7 @@ const appendModal = (title, genre, date, rating, summary, img) => {
   document.querySelector(".modal-title").innerHTML = title
   document.querySelector(".modal-year").innerHTML = date
   document.querySelector(".modal-rating").innerHTML = rating
-  document.querySelector(".modal-genre"). innerHTML = genre
+  document.querySelector(".modal-genre").innerHTML = genre
   document.querySelector(".modal-image img").src = img
   document.querySelector(".modal-description").innerHTML = summary
 }
