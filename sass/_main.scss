@@ -126,8 +126,15 @@
     @include reset-list;
 
     display: flex;
-    gap: 45px;
+    gap: 20px;
     flex-wrap: wrap;
+    flex-direction: column;
+
+    @include ipad {
+      flex-direction: row;
+      gap: 45px;
+    }
+
     li {
       a {
         @include reset-a;
