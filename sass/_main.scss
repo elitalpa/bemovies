@@ -159,7 +159,8 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
-    
+    max-width: 742px;
+
     display: flex;
     gap: 58px;
     flex-direction: column;
