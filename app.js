@@ -100,11 +100,6 @@ const createCard = (imgUrl, movieTitle, date, genre, rating, summary) => {
     newCard.classList.add(`swiper-slide`)
     let newCardPicture = document.createElement('img');
     let newCardHover = document.createElement('div');
-    newCardHover.style.position = "absolute";
-    newCardHover.style.width = "100%";
-    newCardHover.style.height = "100%";
-    newCardHover.style.backgroundColor = "rgba(0, 0, 0, 0.863)"
-    newCardHover.style.zIndex = "3"
 
     let newCardHoverTitle = document.createElement('h4')
     newCardHoverTitle.innerHTML = movieTitle
@@ -214,7 +209,7 @@ document.querySelector("#search form button").addEventListener("click", async (e
 
 /* -------------- POPULAR RELEASES FUNCTION --------------  */
 
-/* document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await fetch(newReleasesUrl, options)
     if (response.ok) {
@@ -237,7 +232,7 @@ document.querySelector("#search form button").addEventListener("click", async (e
   catch (error) {
     console.log(error, "error retrieveing new releases")
   }
-}) */
+})
 
 /* -------------- MOVIE BY GENRE FUNCTION --------------  */
 
