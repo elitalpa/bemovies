@@ -130,6 +130,20 @@
     li {
       a {
         @include reset-a;
+        @include font-inter-400;
+
+        height: 33px;
+        padding: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      a.active {
+        border-radius: 8px;
+        background: #C00;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       }
     }
   }
