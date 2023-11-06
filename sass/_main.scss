@@ -75,7 +75,7 @@
   margin-bottom: 95px;
 
   h2 {
-    margin-bottom: 10px;
+    margin-bottom: 39px;
   }
 
   #movies-genres {
@@ -126,7 +126,15 @@
     @include reset-list;
 
     display: flex;
-    gap: 45px;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @include ipad {
+      flex-direction: row;
+      gap: 45px;
+    }
+
     li {
       a {
         @include reset-a;
@@ -138,6 +146,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+
+      a:hover {
+        border-radius: 8px;
+        background: #C00;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       }
 
       a.active {
