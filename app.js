@@ -209,7 +209,7 @@ document.querySelector("#search form button").addEventListener("click", async (e
 
 /* -------------- POPULAR RELEASES FUNCTION --------------  */
 
-document.addEventListener("DOMContentLoaded", async () => {
+/* document.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await fetch(newReleasesUrl, options)
     if (response.ok) {
@@ -232,7 +232,42 @@ document.addEventListener("DOMContentLoaded", async () => {
   catch (error) {
     console.log(error, "error retrieveing new releases")
   }
-})
+}) */
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const response = await fetch(newReleasesUrl, options)
+    if (response.ok) {
+      cardArray = []
+      latestSwiperWrapper.innerHTML = ""
+      const data = await response.json();
+      const sortedResults = sortByPopularity(data)
+      for (let element of sortedResults) {
+        moviePoster = `https://image.tmdb.org/t/p/original${element.poster_path}`;
+        movieTitle = element.original_title;
+        movieGenres = findMovieGenres(element);
+        movieReleaseDate = element.release_date;
+        movieReviewAverage = element.vote_average;
+        movieSummary = element.overview;
+        // FIRST WE CREATE THE CARDS
+        let newCard = createCard(moviePoster, movieTitle, movieReleaseDate, movieGenres.toString(), movieReviewAverage, movieSummary)
+        // WE PUSH THE CARD TO AN ARRAY
+        cardArray.push(newCard)
+      }
+      // WE DISPLAY THE ARRAY
+      cardArray.forEach(e => {
+        latestSwiperWrapper.appendChild(e)
+      })
+
+    }
+    else {
+      console.log("oopsie")
+    }
+  }
+
+  catch (error) {
+    console.log(error, "error retrieving search results")
+  }
+});
 
 /* -------------- MOVIE BY GENRE FUNCTION --------------  */
 
@@ -318,7 +353,7 @@ document.querySelectorAll(".swiper-wrapper").forEach((e) => {
       // TOGGLE LE MODAL
 
       document.querySelector(".modal").classList.toggle("inactive")
-      
+
     }
   });
 })
@@ -332,7 +367,7 @@ const appendModal = (title, genre, date, rating, summary, img) => {
   document.querySelector(".modal-title").innerHTML = title
   document.querySelector(".modal-year").innerHTML = date
   document.querySelector(".modal-rating").innerHTML = rating
-  document.querySelector(".modal-genre"). innerHTML = genre
+  document.querySelector(".modal-genre").innerHTML = genre
   document.querySelector(".modal-image img").src = img
   document.querySelector(".modal-description").innerHTML = summary
 }
