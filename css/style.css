@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 * {
   margin: 0;
@@ -162,6 +162,12 @@ header {
 .swiper-btn-prev,
 .swiper-btn-next {
   display: none;
+  cursor: pointer;
+  user-select: none; /* standard syntax */
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
 }
 @media screen and (min-width: 768px) {
   .swiper-btn-prev,
@@ -197,6 +203,106 @@ header {
   font-weight: normal;
   text-decoration: none;
   display: inline-block;
+}
+
+.modal.inactive {
+  display: none; /* Hidden by default */
+}
+
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.modal .modal-content {
+  background-color: #141517;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 742px;
+  display: flex;
+  gap: 58px;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .modal .modal-content {
+    flex-direction: row;
+  }
+}
+.modal .modal-content .modal-text .modal-title {
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #CC0000;
+}
+.modal .modal-content .modal-text .modal-year {
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
+  letter-spacing: 0.42px;
+  color: #E9E9E9;
+  margin-bottom: 11px;
+}
+.modal .modal-content .modal-text .modal-rating {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: #CC0000;
+  margin-bottom: 12px;
+}
+.modal .modal-content .modal-text .modal-genre {
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
+  color: #E9E9E9;
+  margin-bottom: 13px;
+}
+.modal .modal-content .modal-text .modal-description {
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: 0.48px;
+}
+.modal .modal-content .modal-text .modal-description {
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.modal .close-modal {
+  color: #FFFFFF;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.modal .close-modal:hover,
+.modal .close-modal:focus {
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal .modal-image {
+  max-width: 234px;
+  max-height: 351px;
+}
+.modal .modal-image img {
+  width: 100%;
 }
 
 footer {

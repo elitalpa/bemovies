@@ -48,6 +48,12 @@
   font-style: normal;
 }
 
+@mixin font-inria-sans-400 {
+  font-family: $inria-sans;
+  font-weight: 400;
+  font-style: normal;
+}
+
 @mixin font-inria-sans-700 {
   font-family: $inria-sans;
   font-weight: 700;
