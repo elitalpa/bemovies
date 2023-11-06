@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -24,6 +24,41 @@
           <p class="modal-description"></p>
           <div class="modal-cast"></div>
         </div>
+      </div>
+    </div>
+    <!-- MODAL SIGNUP / LOGIN -->
+    <div class="modal-signup-login inactive">
+      <div class="modal-content">
+        <span class="close-modal">×</span>
+        <div class="modal-tabs">
+          <button class="open-signup">SIGNUP</button>
+          <button class="open-login active">LOGIN</button>
+        </div>
+        <!-- FORM LOGIN -->
+        <form id="form-login" class="modal-form">
+          <input type="text" id="username" placeholder="Username" />
+          <input type="password" id="password" placeholder="Password" />
+          <div class="rememberme">
+            <input type="checkbox" name="rememberMe" /><label for="rememberMe"
+              >Remember me</label
+            >
+          </div>
+          <button id="login-button">LOGIN</button>
+          <a>I forgot my password</a>
+          <p>Not a member yet ? <a class="open-register">Sign up</a></p>
+        </form>
+        <!-- FORM REGISTER -->
+        <form id="form-register" class="modal-form inactive">
+          <input type="text" id="username" placeholder="Username" />
+          <input type="email" id="email" placeholder="E-mail-adress" />
+          <input type="password" id="password" placeholder="Password" />
+          <input
+            type="password"
+            id="password-confirm"
+            placeholder="Confirm password"
+          />
+          <button id="register-button">REGISTER</button>
+        </form>
       </div>
     </div>
     <!-- HEADER -->

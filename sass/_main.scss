@@ -150,13 +150,13 @@
 
       a:hover {
         border-radius: 8px;
-        background: #C00;
+        background: #c00;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       }
 
       a.active {
         border-radius: 8px;
-        background: #C00;
+        background: #c00;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       }
     }
@@ -278,6 +278,156 @@
     img {
       @include reset-img;
     }
+  }
+}
+
+// modal singup login
+
+.modal-signup-login.inactive {
+  display: none; /* Hidden by default */
+}
+
+.modal-signup-login {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+  .modal-content {
+    position: relative;
+
+    background-color: $black;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 410px;
+
+    padding: 61px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 39px;
+
+
+
+    .modal-tabs {
+      border-radius: 8px;
+      border: 1px solid #fff;
+
+      height: 54px;
+      display: flex;
+
+      .open-signup,
+      .open-login {
+        @include reset-button;
+        @include font-inria-sans-700;
+        font-size: 24px;
+        letter-spacing: 0.72px;
+        text-transform: uppercase;
+
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+      }
+
+      .open-signup.active {
+        border-radius: 8px 0 0 8px;
+        background: $red;
+      }
+
+      .open-login.active {
+        border-radius: 0 8px 8px 0;
+        background: $red;
+      }
+
+      .open-signup:hover {
+        background-color: $light-gray;
+        border-radius: 8px 0 0 8px;
+      }
+
+      .open-login:hover {
+        background-color: $light-gray;
+        border-radius: 0 8px 8px 0;
+      }
+    }
+
+    .modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      
+    & > input {
+      @include reset-input;
+      height: 44px;
+      background-color: $white;
+      color: $black;
+      border-radius: 8px;
+
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .rememberme input {
+      margin-right: 9px;
+    }
+
+    button {
+      @include reset-button;
+      background: $red;
+      border-radius: 8px;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button:hover {
+      cursor: pointer;
+      background: $light-gray;
+      stroke: $white;
+    }
+
+    a {
+      @include reset-a;
+      cursor: pointer;
+      color: $red;
+    }
+
+    a:hover {
+      color: $light-gray;
+    }
+    }
+
+    .inactive {
+      display: none;
+    }
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    color: $white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close-modal:hover,
+  .close-modal:focus {
+    color: $white;
+    text-decoration: none;
+    cursor: pointer;
   }
 }
 
