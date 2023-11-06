@@ -24,6 +24,10 @@ h2 {
   font-size: 16px;
 }
 
+.inactive {
+  display: none !important;
+}
+
 header {
   height: 100px;
   background: #141517;
@@ -231,12 +235,7 @@ header {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.modal.inactive {
-  display: none; /* Hidden by default */
-}
-
 .modal {
-  display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 999; /* Sit on top */
   left: 0;
@@ -342,12 +341,7 @@ header {
   width: 100%;
 }
 
-.modal-signup-login.inactive {
-  display: none; /* Hidden by default */
-}
-
 .modal-signup-login {
-  display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 999; /* Sit on top */
   left: 0;
@@ -467,9 +461,6 @@ header {
 }
 .modal-signup-login .modal-content .modal-form a:hover {
   color: #B0B0B0;
-}
-.modal-signup-login .modal-content .inactive {
-  display: none;
 }
 .modal-signup-login .close-modal {
   position: absolute;

@@ -34,3 +34,7 @@ h2 {
   @include font-inter-400;
   font-size: 16px;
 }
+
+.inactive {
+  display: none !important;
+}

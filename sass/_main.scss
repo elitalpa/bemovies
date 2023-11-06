@@ -165,12 +165,12 @@
 
 // Modal movie info
 
-.modal.inactive {
-  display: none; /* Hidden by default */
-}
+// .modal.inactive {
+//   display: none; /* Hidden by default */
+// }
 
 .modal {
-  display: block; /* Hidden by default */
+  // display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 999; /* Sit on top */
   left: 0;
@@ -283,12 +283,12 @@
 
 // modal singup login
 
-.modal-signup-login.inactive {
-  display: none; /* Hidden by default */
-}
+// .modal-signup-login.inactive {
+//   display: none; /* Hidden by default */
+// }
 
 .modal-signup-login {
-  display: block; /* Hidden by default */
+  // display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 999; /* Sit on top */
   left: 0;
@@ -314,8 +314,6 @@
     display: flex;
     flex-direction: column;
     gap: 39px;
-
-
 
     .modal-tabs {
       border-radius: 8px;
@@ -363,53 +361,52 @@
       flex-direction: column;
       gap: 25px;
 
-      
-    & > input {
-      @include reset-input;
-      height: 44px;
-      background-color: $white;
-      color: $black;
-      border-radius: 8px;
+      & > input {
+        @include reset-input;
+        height: 44px;
+        background-color: $white;
+        color: $black;
+        border-radius: 8px;
 
-      padding-left: 18px;
-      padding-right: 18px;
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .rememberme input {
+        margin-right: 9px;
+      }
+
+      button {
+        @include reset-button;
+        background: $red;
+        border-radius: 8px;
+        height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      button:hover {
+        cursor: pointer;
+        background: $light-gray;
+        stroke: $white;
+      }
+
+      a {
+        @include reset-a;
+        cursor: pointer;
+        color: $red;
+      }
+
+      a:hover {
+        color: $light-gray;
+      }
     }
 
-    .rememberme input {
-      margin-right: 9px;
-    }
-
-    button {
-      @include reset-button;
-      background: $red;
-      border-radius: 8px;
-      height: 48px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    button:hover {
-      cursor: pointer;
-      background: $light-gray;
-      stroke: $white;
-    }
-
-    a {
-      @include reset-a;
-      cursor: pointer;
-      color: $red;
-    }
-
-    a:hover {
-      color: $light-gray;
-    }
-    }
-
-    .inactive {
-      display: none;
-    }
+    // .inactive {
+    //   display: none;
+    // }
   }
 
   .close-modal {
