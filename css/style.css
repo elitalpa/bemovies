@@ -222,12 +222,12 @@ header {
 }
 #genres-list ul li a:hover {
   border-radius: 8px;
-  background: #C00;
+  background: #c00;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 #genres-list ul li a.active {
   border-radius: 8px;
-  background: #C00;
+  background: #c00;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -340,6 +340,151 @@ header {
 }
 .modal .modal-image img {
   width: 100%;
+}
+
+.modal-signup-login.inactive {
+  display: none; /* Hidden by default */
+}
+
+.modal-signup-login {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.modal-signup-login .modal-content {
+  position: relative;
+  background-color: #141517;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 410px;
+  padding: 61px;
+  display: flex;
+  flex-direction: column;
+  gap: 39px;
+}
+.modal-signup-login .modal-content .modal-tabs {
+  border-radius: 8px;
+  border: 1px solid #fff;
+  height: 54px;
+  display: flex;
+}
+.modal-signup-login .modal-content .modal-tabs .open-signup,
+.modal-signup-login .modal-content .modal-tabs .open-login {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  letter-spacing: 0.72px;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.modal-signup-login .modal-content .modal-tabs .open-signup.active {
+  border-radius: 8px 0 0 8px;
+  background: #CC0000;
+}
+.modal-signup-login .modal-content .modal-tabs .open-login.active {
+  border-radius: 0 8px 8px 0;
+  background: #CC0000;
+}
+.modal-signup-login .modal-content .modal-tabs .open-signup:hover {
+  background-color: #B0B0B0;
+  border-radius: 8px 0 0 8px;
+}
+.modal-signup-login .modal-content .modal-tabs .open-login:hover {
+  background-color: #B0B0B0;
+  border-radius: 0 8px 8px 0;
+}
+.modal-signup-login .modal-content .modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.modal-signup-login .modal-content .modal-form > input {
+  all: unset;
+  height: 44px;
+  background-color: #FFFFFF;
+  color: #141517;
+  border-radius: 8px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.modal-signup-login .modal-content .modal-form .rememberme input {
+  margin-right: 9px;
+}
+.modal-signup-login .modal-content .modal-form button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+  background: #CC0000;
+  border-radius: 8px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-signup-login .modal-content .modal-form button:hover {
+  cursor: pointer;
+  background: #B0B0B0;
+  stroke: #FFFFFF;
+}
+.modal-signup-login .modal-content .modal-form a {
+  color: white;
+  font-weight: normal;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  color: #CC0000;
+}
+.modal-signup-login .modal-content .modal-form a:hover {
+  color: #B0B0B0;
+}
+.modal-signup-login .modal-content .inactive {
+  display: none;
+}
+.modal-signup-login .close-modal {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #FFFFFF;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.modal-signup-login .close-modal:hover,
+.modal-signup-login .close-modal:focus {
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .swiper-slide > div {
