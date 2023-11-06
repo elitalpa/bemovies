@@ -183,8 +183,6 @@
         font-size: 14px;
         letter-spacing: 0.42px;
         color: #e9e9e9;
-
-        margin-bottom: 11px;
       }
 
       .modal-rating {
@@ -192,7 +190,20 @@
         font-size: 20px;
         color: $red;
 
+        height: 21px;
+
+        margin-top: 11px;
         margin-bottom: 12px;
+      }
+
+      .modal-rating::before {
+        content: "";
+        display: inline-block;
+        width: 21px;
+        height: 21px;
+        background-image: url(../assets/star.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
       }
 
       .modal-genre {

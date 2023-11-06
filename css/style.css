@@ -253,7 +253,6 @@ header {
   font-size: 14px;
   letter-spacing: 0.42px;
   color: #e9e9e9;
-  margin-bottom: 11px;
 }
 .modal .modal-content .modal-text .modal-rating {
   font-family: "Inter", sans-serif;
@@ -261,7 +260,18 @@ header {
   font-style: normal;
   font-size: 20px;
   color: #CC0000;
+  height: 21px;
+  margin-top: 11px;
   margin-bottom: 12px;
+}
+.modal .modal-content .modal-text .modal-rating::before {
+  content: "";
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background-image: url(../assets/star.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .modal .modal-content .modal-text .modal-genre {
   font-family: "Inria Sans", sans-serif;
