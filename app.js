@@ -227,10 +227,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         movieTitle = element.original_title;
         movieGenres = findMovieGenres(element);
         movieReleaseDate = element.release_date;
-        movieReviewAverage = element.vote_average;
+        movieReviewAverage = round(element.vote_average, 2);
         movieSummary = element.overview;
         // FIRST WE CREATE THE CARDS
-        let newCard = createCard(moviePoster, movieTitle, movieReleaseDate, movieGenres.toString(), movieReviewAverage, movieSummary)
+        let newCard = createCard(moviePoster, movieTitle, movieReleaseDate, movieGenres.join(" / "), movieReviewAverage, movieSummary)
         // WE PUSH THE CARD TO AN ARRAY
         cardArray.push(newCard)
       }
@@ -270,10 +270,10 @@ document.querySelector("#genres-list ul").addEventListener("click", async (e) =>
         movieTitle = element.original_title;
         movieGenres = findMovieGenres(element);
         movieReleaseDate = element.release_date;
-        movieReviewAverage = element.vote_average;
+        movieReviewAverage = round(element.vote_average, 2);
         movieSummary = element.overview;
         // FIRST WE CREATE THE CARDS
-        let newCard = createCard(moviePoster, movieTitle, movieReleaseDate, movieGenres.toString(), movieReviewAverage)
+        let newCard = createCard(moviePoster, movieTitle, movieReleaseDate, movieGenres.join(" / "), movieReviewAverage)
         // WE PUSH THE CARD TO AN ARRAY
         cardArray.push(newCard)
       }
