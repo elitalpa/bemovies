@@ -272,6 +272,7 @@ header {
   background-image: url(../assets/star.svg);
   background-size: contain;
   background-repeat: no-repeat;
+  margin-right: 5px;
 }
 .modal .modal-content .modal-text .modal-genre {
   font-family: "Inria Sans", sans-serif;
