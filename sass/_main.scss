@@ -243,7 +243,7 @@
 // movie card info hover
 
 .swiper-slide {
-  div {
+  & > div {
     display: none;
     overflow-wrap: break-word;
 
@@ -256,7 +256,7 @@
 }
 
 .swiper-slide:hover {
-  div {
+  & > div {
     display: flex;
     flex-direction: column;
     align-items: center;

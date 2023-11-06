@@ -305,7 +305,7 @@ header {
   width: 100%;
 }
 
-.swiper-slide div {
+.swiper-slide > div {
   display: none;
   overflow-wrap: break-word;
   position: absolute;
@@ -315,36 +315,36 @@ header {
   z-index: 3;
 }
 
-.swiper-slide:hover div {
+.swiper-slide:hover > div {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 23px;
 }
-.swiper-slide:hover div .movie-card-title {
+.swiper-slide:hover > div .movie-card-title {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 20px;
 }
-.swiper-slide:hover div .movie-card-date {
+.swiper-slide:hover > div .movie-card-date {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 20px;
   color: #B0B0B0;
 }
-.swiper-slide:hover div .movie-card-genre {
+.swiper-slide:hover > div .movie-card-genre {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 14px;
 }
-.swiper-slide:hover div .movie-card-star::before {
+.swiper-slide:hover > div .movie-card-star::before {
   content: url(../assets/star.svg);
 }
-.swiper-slide:hover div .movie-card-rating {
+.swiper-slide:hover > div .movie-card-rating {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-style: normal;
