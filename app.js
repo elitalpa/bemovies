@@ -71,6 +71,7 @@ let searchSwiperWrapper = document.querySelector("#search-results .swiper .swipe
 let latestSwiperWrapper = document.querySelector("#latest-releases .swiper .swiper-wrapper")
 let genresSwiperWrapper = document.querySelector("#movies-genres  .swiper .swiper-wrapper")
 
+
 const options = {
   method: 'GET',
   headers: {
@@ -174,16 +175,26 @@ const findMovieGenres = (movie) => {
 
 /* -------------- SEARCH FUNCTION --------------  */
 
-document.querySelector("#search-results").classList.add("inactive")
+document.querySelector("#search-results").classList.add("inactive");
+
 document.querySelector("#search form button").addEventListener("click", async (e) => {
   e.preventDefault()
-  let searchValue = document.getElementById("search-input").value
-  try {
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?&include_adult=false&include_video=false&language=en-US&query=${searchValue}&sort_by=popularity.desc`, options)
+  const loadingMessage = document.querySelector("#search-results .swiper h2");    
+  const searchValue = document.getElementById("search-input").value;
+  loadingMessage.innerHTML=""
 
+  try {
+    let dotsInterval = window.setInterval(function () {
+    if (loadingMessage.innerHTML.length > 3)
+      loadingMessage.innerHTML = "";
+    else
+      loadingMessage.innerHTML += ".";
+  }, 100);
+
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?&include_adult=false&include_video=false&language=en-US&query=${searchValue}&sort_by=popularity.desc`, options)
     if (response.ok) {
-      cardArray = []
       searchSwiperWrapper.innerHTML = ""
+      cardArray = []
       const data = await response.json();
       const sortedResults = sortByPopularity(data)
       for (let element of sortedResults) {
@@ -199,11 +210,23 @@ document.querySelector("#search form button").addEventListener("click", async (e
         cardArray.push(newCard)
       }
       // WE DISPLAY THE ARRAY
-      cardArray.forEach(e => {
-        searchSwiperWrapper.appendChild(e)
-        document.querySelector("#search-results").classList.remove("inactive")
-      })
-
+      setTimeout(() => {
+        cardArray.forEach(e => {
+          if (e) {
+            searchSwiperWrapper.appendChild(e)
+          }
+        })
+        while(searchSwiperWrapper.childElementCount < 4){
+          let emptyDiv = document.createElement("div")
+          emptyDiv.classList.add("swiper-slide")
+          searchSwiperWrapper.appendChild(emptyDiv)
+        }
+        if (document.querySelector("#search-results").classList.contains("inactive")) {
+          document.querySelector("#search-results").classList.remove("inactive")
+        }
+        document.querySelector("#search-results .swiper h2").textContent = `Results for "${searchValue}"`
+      clearInterval(dotsInterval);
+      }, 1000);
     }
     else {
       console.log("oopsie")
@@ -436,7 +459,8 @@ document.querySelector(".open-login").addEventListener("click", () => {
   document.querySelector("#form-login").classList.remove("inactive");
 })
 
-
+// LOADING MESSAGE
+  
 
 
 
