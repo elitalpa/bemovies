@@ -275,8 +275,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
       // WE DISPLAY THE ARRAY
       cardArray.forEach(e => {
-        latestSwiperWrapper.appendChild(e)
-        document.querySelector("#latest-releases").classList.remove("inactive")
+        if(e){
+        latestSwiperWrapper.appendChild(e);}
+        document.querySelector("#latest-releases").classList.remove("inactive");
       })
 
     }
