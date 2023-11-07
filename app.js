@@ -174,6 +174,7 @@ const findMovieGenres = (movie) => {
 
 /* -------------- SEARCH FUNCTION --------------  */
 
+document.querySelector("#search-results").classList.add("inactive")
 document.querySelector("#search form button").addEventListener("click", async (e) => {
   e.preventDefault()
   let searchValue = document.getElementById("search-input").value
@@ -200,6 +201,7 @@ document.querySelector("#search form button").addEventListener("click", async (e
       // WE DISPLAY THE ARRAY
       cardArray.forEach(e => {
         searchSwiperWrapper.appendChild(e)
+        document.querySelector("#search-results").classList.remove("inactive")
       })
 
     }
@@ -214,8 +216,44 @@ document.querySelector("#search form button").addEventListener("click", async (e
 });
 
 /* -------------- POPULAR RELEASES FUNCTION --------------  */
-
+document.querySelector("#latest-releases").classList.add("inactive")
+document.querySelector("#movies-genres").classList.add("inactive")
 document.addEventListener("DOMContentLoaded", async () => {
+  const genreSearchURL = `https://api.themoviedb.org/3/discover/movie?&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=35`
+  try {
+    const response = await fetch(genreSearchURL, options)
+    if (response.ok) {
+      cardArray = []
+      genresSwiperWrapper.innerHTML = ""
+      const data = await response.json();
+      const sortedResults = sortByPopularity(data)
+      for (let element of sortedResults) {
+        moviePoster = `https://image.tmdb.org/t/p/original${element.poster_path}`;
+        movieTitle = element.original_title;
+        movieGenres = findMovieGenres(element);
+        movieReleaseDate = element.release_date;
+        movieReviewAverage = round(element.vote_average, 2);
+        movieSummary = element.overview;
+        // FIRST WE CREATE THE CARDS
+        let newCard = createCard(moviePoster, movieTitle, movieReleaseDate, movieGenres.join(" / "), movieReviewAverage)
+        // WE PUSH THE CARD TO AN ARRAY
+        cardArray.push(newCard)
+      }
+      // WE DISPLAY THE ARRAY
+      cardArray.forEach(e => {
+        genresSwiperWrapper.appendChild(e)
+        document.querySelector("#movies-genres").classList.remove("inactive")
+      })
+
+    }
+    else {
+      console.log("oopsie")
+    }
+  }
+
+  catch (error) {
+    console.log(error, "error retrieving search results")
+  }
   try {
     const response = await fetch(newReleasesUrl, options)
     if (response.ok) {
@@ -237,7 +275,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
       // WE DISPLAY THE ARRAY
       cardArray.forEach(e => {
-        latestSwiperWrapper.appendChild(e)
+        if(e){
+        latestSwiperWrapper.appendChild(e);}
+        document.querySelector("#latest-releases").classList.remove("inactive");
       })
 
     }
@@ -253,6 +293,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 /* -------------- MOVIE BY GENRE FUNCTION --------------  */
 
+
 document.querySelector("#genres-list ul").addEventListener("click", async (e) => {
   genre = genreTextToID(e.target.innerHTML);
   const genreSearchURL = `https://api.themoviedb.org/3/discover/movie?&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}`
@@ -260,7 +301,6 @@ document.querySelector("#genres-list ul").addEventListener("click", async (e) =>
 
   try {
     const response = await fetch(genreSearchURL, options)
-    console.log(genreSearchURL)
     if (response.ok) {
       cardArray = []
       genresSwiperWrapper.innerHTML = ""
@@ -291,13 +331,12 @@ document.querySelector("#genres-list ul").addEventListener("click", async (e) =>
     const allGenreItems = document.querySelectorAll("#genres-list ul a");
     allGenreItems.forEach(item => item.classList.remove("active"));
     e.target.classList.add("active");
-
   }
 
   catch (error) {
     console.log(error, "error retrieving search results")
   }
-});
+})
 // GET MOVIE CREDITS
 
 /* const getMovieCredits = async (id) => {
