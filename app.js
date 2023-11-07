@@ -275,8 +275,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
       // WE DISPLAY THE ARRAY
       cardArray.forEach(e => {
-        if(e){
-        latestSwiperWrapper.appendChild(e);}
+        if (e) {
+          latestSwiperWrapper.appendChild(e);
+        }
         document.querySelector("#latest-releases").classList.remove("inactive");
       })
 
@@ -337,30 +338,6 @@ document.querySelector("#genres-list ul").addEventListener("click", async (e) =>
     console.log(error, "error retrieving search results")
   }
 })
-// GET MOVIE CREDITS
-
-/* const getMovieCredits = async (id) => {
-  try {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US&page=1`, options);
-
-    if (response.ok) {
-      const data = await response.json();
-      let castArray = data.cast;
-      let cleanArray = []
-      castArray.forEach(element => {
-        cleanArray.push(element.name)
-      })
-      return cleanArray.splice(0, 10);
-
-    } else {
-      console.log("Oops, something went wrong with fetching movie credits.");
-      return [];
-    }
-  } catch (error) {
-    console.error("An error occurred while fetching movie credits:", error);
-    return [];
-  }
-} */
 
 // QUAND JE CLIQUE SUR UNE CARTE
 
@@ -398,3 +375,99 @@ const appendModal = (title, genre, date, rating, summary, img) => {
   document.querySelector(".modal-image img").src = img
   document.querySelector(".modal-description").innerHTML = summary
 }
+
+// OPEN LOGIN AND REGISTER MODALS
+
+//OPEN MODAL ON REGISTER TAB
+
+document.querySelectorAll(".nav-register").forEach((e) => {
+  e.addEventListener("click", () => {
+    document.querySelector(".open-signup").classList.add("active");
+    document.querySelector(".open-login").classList.remove("active");
+    document.querySelector(".modal-signup-login").classList.toggle("inactive");
+    document.querySelector("#form-login").classList.add("inactive");
+    document.querySelector("#form-register").classList.remove("inactive");
+  })
+})
+
+//OPEN MODAL ON SIGNIN TAB
+
+document.querySelectorAll(".nav-signin").forEach((e) => {
+  e.addEventListener("click", () => {
+    document.querySelector(".open-login").classList.add("active");
+    document.querySelector(".open-signup").classList.remove("active");
+    document.querySelector(".modal-signup-login").classList.toggle("inactive");
+    document.querySelector("#form-register").classList.add("inactive");
+    document.querySelector("#form-login").classList.remove("inactive");
+  })
+})
+
+//CLOSE MODAL WHEN CLICKING ON CROSS AND BACKGROUND
+
+document.querySelector(".modal-signup-login .close-modal").addEventListener("click", () => {
+  document.querySelector(".modal-signup-login").classList.toggle("inactive");
+})
+
+document.querySelector(".modal").addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal")) {
+    document.querySelector(".modal").classList.toggle("inactive");
+  }
+})
+
+document.querySelector(".modal-signup-login").addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal-signup-login")) {
+    document.querySelector(".modal-signup-login").classList.toggle("inactive");
+  }
+})
+
+//SWITCH TABS  
+
+document.querySelector(".open-signup").addEventListener("click", () => {
+  document.querySelector(".open-signup").classList.add("active");
+  document.querySelector(".open-login").classList.remove("active");
+  document.querySelector("#form-login").classList.add("inactive");
+  document.querySelector("#form-register").classList.remove("inactive");
+})
+
+document.querySelector(".open-login").addEventListener("click", () => {
+  document.querySelector(".open-login").classList.add("active");
+  document.querySelector(".open-signup").classList.remove("active");
+  document.querySelector("#form-register").classList.add("inactive");
+  document.querySelector("#form-login").classList.remove("inactive");
+})
+
+
+
+
+
+
+
+
+
+
+
+
+// GET MOVIE CREDITS
+
+/* const getMovieCredits = async (id) => {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US&page=1`, options);
+
+    if (response.ok) {
+      const data = await response.json();
+      let castArray = data.cast;
+      let cleanArray = []
+      castArray.forEach(element => {
+        cleanArray.push(element.name)
+      })
+      return cleanArray.splice(0, 10);
+
+    } else {
+      console.log("Oops, something went wrong with fetching movie credits.");
+      return [];
+    }
+  } catch (error) {
+    console.error("An error occurred while fetching movie credits:", error);
+    return [];
+  }
+} */
