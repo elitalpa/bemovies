@@ -71,6 +71,7 @@ let searchSwiperWrapper = document.querySelector("#search-results .swiper .swipe
 let latestSwiperWrapper = document.querySelector("#latest-releases .swiper .swiper-wrapper")
 let genresSwiperWrapper = document.querySelector("#movies-genres  .swiper .swiper-wrapper")
 
+
 const options = {
   method: 'GET',
   headers: {
@@ -174,16 +175,26 @@ const findMovieGenres = (movie) => {
 
 /* -------------- SEARCH FUNCTION --------------  */
 
-document.querySelector("#search-results").classList.add("inactive")
+document.querySelector("#search-results").classList.add("inactive");
+
 document.querySelector("#search form button").addEventListener("click", async (e) => {
   e.preventDefault()
-  let searchValue = document.getElementById("search-input").value
-  try {
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?&include_adult=false&include_video=false&language=en-US&query=${searchValue}&sort_by=popularity.desc`, options)
+  const loadingMessage = document.querySelector("#search-results .swiper h2");    
+  const searchValue = document.getElementById("search-input").value;
+  loadingMessage.innerHTML=""
 
+  try {
+    let dotsInterval = window.setInterval(function () {
+    if (loadingMessage.innerHTML.length > 3)
+      loadingMessage.innerHTML = "";
+    else
+      loadingMessage.innerHTML += ".";
+  }, 100);
+
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?&include_adult=false&include_video=false&language=en-US&query=${searchValue}&sort_by=popularity.desc`, options)
     if (response.ok) {
-      cardArray = []
       searchSwiperWrapper.innerHTML = ""
+      cardArray = []
       const data = await response.json();
       const sortedResults = sortByPopularity(data)
       for (let element of sortedResults) {
@@ -199,11 +210,23 @@ document.querySelector("#search form button").addEventListener("click", async (e
         cardArray.push(newCard)
       }
       // WE DISPLAY THE ARRAY
-      cardArray.forEach(e => {
-        searchSwiperWrapper.appendChild(e)
-        document.querySelector("#search-results").classList.remove("inactive")
-      })
-
+      setTimeout(() => {
+        cardArray.forEach(e => {
+          if (e) {
+            searchSwiperWrapper.appendChild(e)
+          }
+        })
+        while(searchSwiperWrapper.childElementCount < 4){
+          let emptyDiv = document.createElement("div")
+          emptyDiv.classList.add("swiper-slide")
+          searchSwiperWrapper.appendChild(emptyDiv)
+        }
+        if (document.querySelector("#search-results").classList.contains("inactive")) {
+          document.querySelector("#search-results").classList.remove("inactive")
+        }
+        document.querySelector("#search-results .swiper h2").textContent = `Results for "${searchValue}"`
+      clearInterval(dotsInterval);
+      }, 1000);
     }
     else {
       console.log("oopsie")
@@ -275,8 +298,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
       // WE DISPLAY THE ARRAY
       cardArray.forEach(e => {
-        if(e){
-        latestSwiperWrapper.appendChild(e);}
+        if (e) {
+          latestSwiperWrapper.appendChild(e);
+        }
         document.querySelector("#latest-releases").classList.remove("inactive");
       })
 
@@ -337,30 +361,6 @@ document.querySelector("#genres-list ul").addEventListener("click", async (e) =>
     console.log(error, "error retrieving search results")
   }
 })
-// GET MOVIE CREDITS
-
-/* const getMovieCredits = async (id) => {
-  try {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US&page=1`, options);
-
-    if (response.ok) {
-      const data = await response.json();
-      let castArray = data.cast;
-      let cleanArray = []
-      castArray.forEach(element => {
-        cleanArray.push(element.name)
-      })
-      return cleanArray.splice(0, 10);
-
-    } else {
-      console.log("Oops, something went wrong with fetching movie credits.");
-      return [];
-    }
-  } catch (error) {
-    console.error("An error occurred while fetching movie credits:", error);
-    return [];
-  }
-} */
 
 // QUAND JE CLIQUE SUR UNE CARTE
 
@@ -398,3 +398,100 @@ const appendModal = (title, genre, date, rating, summary, img) => {
   document.querySelector(".modal-image img").src = img
   document.querySelector(".modal-description").innerHTML = summary
 }
+
+// OPEN LOGIN AND REGISTER MODALS
+
+//OPEN MODAL ON REGISTER TAB
+
+document.querySelectorAll(".nav-register").forEach((e) => {
+  e.addEventListener("click", () => {
+    document.querySelector(".open-signup").classList.add("active");
+    document.querySelector(".open-login").classList.remove("active");
+    document.querySelector(".modal-signup-login").classList.toggle("inactive");
+    document.querySelector("#form-login").classList.add("inactive");
+    document.querySelector("#form-register").classList.remove("inactive");
+  })
+})
+
+//OPEN MODAL ON SIGNIN TAB
+
+document.querySelectorAll(".nav-signin").forEach((e) => {
+  e.addEventListener("click", () => {
+    document.querySelector(".open-login").classList.add("active");
+    document.querySelector(".open-signup").classList.remove("active");
+    document.querySelector(".modal-signup-login").classList.toggle("inactive");
+    document.querySelector("#form-register").classList.add("inactive");
+    document.querySelector("#form-login").classList.remove("inactive");
+  })
+})
+
+//CLOSE MODAL WHEN CLICKING ON CROSS AND BACKGROUND
+
+document.querySelector(".modal-signup-login .close-modal").addEventListener("click", () => {
+  document.querySelector(".modal-signup-login").classList.toggle("inactive");
+})
+
+document.querySelector(".modal").addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal")) {
+    document.querySelector(".modal").classList.toggle("inactive");
+  }
+})
+
+document.querySelector(".modal-signup-login").addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal-signup-login")) {
+    document.querySelector(".modal-signup-login").classList.toggle("inactive");
+  }
+})
+
+//SWITCH TABS  
+
+document.querySelector(".open-signup").addEventListener("click", () => {
+  document.querySelector(".open-signup").classList.add("active");
+  document.querySelector(".open-login").classList.remove("active");
+  document.querySelector("#form-login").classList.add("inactive");
+  document.querySelector("#form-register").classList.remove("inactive");
+})
+
+document.querySelector(".open-login").addEventListener("click", () => {
+  document.querySelector(".open-login").classList.add("active");
+  document.querySelector(".open-signup").classList.remove("active");
+  document.querySelector("#form-register").classList.add("inactive");
+  document.querySelector("#form-login").classList.remove("inactive");
+})
+
+// LOADING MESSAGE
+  
+
+
+
+
+
+
+
+
+
+
+// GET MOVIE CREDITS
+
+/* const getMovieCredits = async (id) => {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US&page=1`, options);
+
+    if (response.ok) {
+      const data = await response.json();
+      let castArray = data.cast;
+      let cleanArray = []
+      castArray.forEach(element => {
+        cleanArray.push(element.name)
+      })
+      return cleanArray.splice(0, 10);
+
+    } else {
+      console.log("Oops, something went wrong with fetching movie credits.");
+      return [];
+    }
+  } catch (error) {
+    console.error("An error occurred while fetching movie credits:", error);
+    return [];
+  }
+} */
